@@ -1,6 +1,6 @@
 # # 1.5 - Stabilization
 
-# In[10]:
+# In[8]:
 
 # source: http://stackoverflow.com/questions/12729228/simple-efficient-bilinear-interpolation-of-images-in-numpy-and-python
 def bilinear_interpolate(im, x, y):
@@ -27,7 +27,8 @@ def bilinear_interpolate(im, x, y):
     wc = (x-x0) * (y1-y)
     wd = (x-x0) * (y-y0)
 
-    return wa*Ia + wb*Ib + wc*Ic + wd*Id
+    # trying to invert
+    return 255-(wa*Ia + wb*Ib + wc*Ic + wd*Id)
 
 if __name__ == '__main__':
     path = 'Images/Q1'
@@ -61,7 +62,7 @@ if __name__ == '__main__':
         plt.close()
 
 
-# In[12]:
+# In[10]:
 
 get_ipython().magic(u'matplotlib notebook')
 
